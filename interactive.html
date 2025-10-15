@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" />
+
+    <title>Interactive Testing</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navigation">
+        <a href="index.html">← Russian Text</a>
+        <span>|</span>
+        <a href="article.html">📄 Article</a>
+        <span>|</span>
+        <a href="#simple">Simple</a>
+        <span>|</span>
+        <a href="#medium">Medium</a>
+      </div>
+
+      <h1>🎯 Interactive Testing</h1>
+
+      <div class="info">
+        <p>
+          <strong>Goal:</strong> This page contains various interactive elements
+          for testing automation, bots, and scripts. Scenarios are organized by
+          complexity level from simple clicks to complex interactions.
+        </p>
+      </div>
+
+      <!-- SIMPLE SCENARIOS -->
+      <section id="simple" class="test-section">
+        <h2>🟢 Simple Scenarios</h2>
+
+        <!-- Click Counter -->
+        <div class="test-block">
+          <h3>1. Click Counter</h3>
+          <p>Simple button click testing and text change.</p>
+          <div class="interactive-demo">
+            <button id="clickCounter" class="btn btn-primary">
+              Clicks: <span id="clickCount">0</span>
+            </button>
+            <button id="resetCounter" class="btn btn-secondary">Reset</button>
+          </div>
+        </div>
+
+        <!-- Toggles -->
+        <div class="test-block">
+          <h3>2. State Toggles</h3>
+          <p>Testing checkboxes and radio buttons.</p>
+          <div class="interactive-demo">
+            <div class="checkbox-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="option1" />
+                <span class="checkmark"></span>
+                Option 1
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="option2" />
+                <span class="checkmark"></span>
+                Option 2
+              </label>
+              <label class="checkbox-label">
+                <input type="checkbox" id="option3" />
+                <span class="checkmark"></span>
+                Option 3
+              </label>
+            </div>
+            <div class="radio-group">
+              <label class="radio-label">
+                <input type="radio" name="choice" value="a" />
+                <span class="radio-mark"></span>
+                Choice A
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="choice" value="b" />
+                <span class="radio-mark"></span>
+                Choice B
+              </label>
+              <label class="radio-label">
+                <input type="radio" name="choice" value="c" />
+                <span class="radio-mark"></span>
+                Choice C
+              </label>
+            </div>
+            <div id="selectionStatus" class="status-display">
+              Status: Nothing selected
+            </div>
+          </div>
+        </div>
+
+        <!-- Show/Hide Elements -->
+        <div class="test-block">
+          <h3>3. Show/Hide Elements</h3>
+          <p>Testing element visibility.</p>
+          <div class="interactive-demo">
+            <button id="toggleVisibility" class="btn btn-info">
+              Show Secret Message
+            </button>
+            <div
+              id="secretMessage"
+              class="hidden-message"
+              style="display: none"
+            >
+              🎉 Secret Message: You successfully tested visibility!
+            </div>
+          </div>
+        </div>
+
+        <!-- Color Changes -->
+        <div class="test-block">
+          <h3>4. Style Changes</h3>
+          <p>Testing CSS property changes.</p>
+          <div class="interactive-demo">
+            <div id="colorBox" class="color-box">Color Box</div>
+            <div class="color-buttons">
+              <button class="btn btn-red" onclick="changeColor('red')">
+                Red
+              </button>
+              <button class="btn btn-green" onclick="changeColor('green')">
+                Green
+              </button>
+              <button class="btn btn-blue" onclick="changeColor('blue')">
+                Blue
+              </button>
+              <button class="btn btn-secondary" onclick="changeColor('gray')">
+                Reset
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEDIUM SCENARIOS -->
+      <section id="medium" class="test-section">
+        <h2>🟡 Medium Complexity Scenarios</h2>
+
+        <!-- Form with Validation -->
+        <div class="test-block">
+          <h3>5. Form with Validation</h3>
+          <p>Testing form filling and data validation.</p>
+          <div class="interactive-demo">
+            <form id="testForm" class="test-form">
+              <div class="form-group">
+                <label for="userName">Username:</label>
+                <input type="text" id="userName" name="userName" required />
+                <span class="error-message" id="userNameError"></span>
+              </div>
+              <div class="form-group">
+                <label for="userEmail">Email:</label>
+                <input type="email" id="userEmail" name="userEmail" required />
+                <span class="error-message" id="userEmailError"></span>
+              </div>
+              <div class="form-group">
+                <label for="userAge">Age:</label>
+                <input
+                  type="number"
+                  id="userAge"
+                  name="userAge"
+                  min="1"
+                  max="120"
+                />
+                <span class="error-message" id="userAgeError"></span>
+              </div>
+              <div class="form-group">
+                <label for="userCountry">Country:</label>
+                <select id="userCountry" name="userCountry">
+                  <option value="">Select country</option>
+                  <option value="ru">Russia</option>
+                  <option value="us">USA</option>
+                  <option value="de">Germany</option>
+                  <option value="fr">France</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-secondary">Clear</button>
+            </form>
+            <div id="formResult" class="form-result"></div>
+          </div>
+        </div>
+
+        <!-- Modal Window -->
+        <div class="test-block">
+          <h3>6. Modal Window</h3>
+          <p>Testing opening and closing modals.</p>
+          <div class="interactive-demo">
+            <button id="openModal" class="btn btn-primary">
+              Open Modal Window
+            </button>
+
+            <div id="modal" class="modal" style="display: none">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4>Test Modal Window</h4>
+                  <span class="modal-close" id="closeModal">&times;</span>
+                </div>
+                <div class="modal-body">
+                  <p>This is modal window content for testing.</p>
+                  <p>
+                    You can close it by clicking the X or the "Close" button.
+                  </p>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" id="closeModalBtn">
+                    Close
+                  </button>
+                  <button class="btn btn-primary" id="modalAction">
+                    Action
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Drag and Drop -->
+        <div class="test-block">
+          <h3>7. Drag & Drop</h3>
+          <p>Testing element dragging.</p>
+          <div class="interactive-demo">
+            <div class="drag-container">
+              <div class="drag-source">
+                <h4>Source:</h4>
+                <div class="draggable-item" draggable="true" data-item="item1">
+                  📦 Item 1
+                </div>
+                <div class="draggable-item" draggable="true" data-item="item2">
+                  📋 Item 2
+                </div>
+                <div class="draggable-item" draggable="true" data-item="item3">
+                  🎯 Item 3
+                </div>
+              </div>
+              <div class="drag-target" id="dropZone">
+                <h4>Drop Zone:</h4>
+                <p class="drop-hint">Drag items here</p>
+                <div id="droppedItems"></div>
+              </div>
+            </div>
+            <button id="resetDrag" class="btn btn-secondary">Reset</button>
+          </div>
+        </div>
+
+        <!-- Dynamic List -->
+        <div class="test-block">
+          <h3>8. Dynamic List</h3>
+          <p>Testing adding and removing elements.</p>
+          <div class="interactive-demo">
+            <div class="list-controls">
+              <input
+                type="text"
+                id="newItemText"
+                placeholder="Enter new item"
+              />
+              <button id="addItem" class="btn btn-primary">Add</button>
+              <button id="clearList" class="btn btn-secondary">
+                Clear All
+              </button>
+            </div>
+            <ul id="dynamicList" class="dynamic-list">
+              <li>Sample item <button class="delete-btn">×</button></li>
+            </ul>
+            <div id="listStats" class="list-stats">
+              Items in list: <span id="itemCount">1</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slider and Progress -->
+        <div class="test-block">
+          <h3>9. Slider and Progress Bar</h3>
+          <p>Testing value controls.</p>
+          <div class="interactive-demo">
+            <div class="slider-group">
+              <label for="progressSlider"
+                >Value: <span id="sliderValue">50</span>%</label
+              >
+              <input
+                type="range"
+                id="progressSlider"
+                min="0"
+                max="100"
+                value="50"
+              />
+            </div>
+            <div class="progress-bar">
+              <div
+                id="progressFill"
+                class="progress-fill"
+                style="width: 50%"
+              ></div>
+            </div>
+            <div class="progress-controls">
+              <button id="startProgress" class="btn btn-primary">
+                Start Auto-Progress
+              </button>
+              <button id="stopProgress" class="btn btn-secondary">Stop</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="test-block">
+          <h3>10. Tab System</h3>
+          <p>Testing tab switching.</p>
+          <div class="interactive-demo">
+            <div class="tabs">
+              <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="tab1">Tab 1</button>
+                <button class="tab-btn" data-tab="tab2">Tab 2</button>
+                <button class="tab-btn" data-tab="tab3">Tab 3</button>
+              </div>
+              <div class="tab-content">
+                <div id="tab1" class="tab-panel active">
+                  <h4>First Tab Content</h4>
+                  <p>This is the content of the first tab for testing.</p>
+                </div>
+                <div id="tab2" class="tab-panel">
+                  <h4>Second Tab Content</h4>
+                  <p>
+                    This is the content of the second tab with different
+                    information.
+                  </p>
+                </div>
+                <div id="tab3" class="tab-panel">
+                  <h4>Third Tab Content</h4>
+                  <p>And here is the content of the third tab.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Test Results -->
+      <section class="test-section">
+        <h2>📊 Test Results</h2>
+        <div class="test-block">
+          <div class="interactive-demo">
+            <div id="testResults" class="test-results">
+              <h4>Interaction Statistics:</h4>
+              <ul id="interactionLog">
+                <li>Page loaded</li>
+              </ul>
+            </div>
+            <button id="exportResults" class="btn btn-info">
+              Export Results
+            </button>
+            <button id="clearResults" class="btn btn-secondary">
+              Clear Log
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <div class="navigation">
+        <a href="index.html">← Russian Text</a>
+        <span>|</span>
+        <a href="article.html">📄 Article</a>
+        <span>|</span>
+        <a href="#top">↑ Top</a>
+      </div>
+
+      <footer class="footer">
+        <p>Interactive Testing Page | Test Lab</p>
+      </footer>
+    </div>
+
+    <script src="js/interactive.js"></script>
+  </body>
+</html>
